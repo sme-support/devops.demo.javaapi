@@ -1,0 +1,46 @@
+# Spring MVC dispatcher servlet path for Actuator endpoints
+spring:
+  profiles:
+    active: qa
+
+---
+spring:
+  profiles: dev
+  application:
+    name: environment-dev
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+  datasource:
+#    initialization-mode: always
+    url: jdbc:mysql://localhost:3306/testdb?useSSL=false
+    username: root
+    password: root
+#    driver-class-name: com.mysql.jdbc.Driver
+server:
+  servlet:
+    contextPath: /demo
+  port: 8080
+---
+
+spring:
+  profiles: qa
+  application:
+    name: environment-qa
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+  datasource:
+#    initialization-mode: always
+    url: jdbc:mysql://localhost:3306/testdb?useSSL=false
+    username: root
+    password: root
+#    driver-class-name: com.mysql.jdbc.Driver
+server:
+  servlet:
+    contextPath: /demo
+  port: 8080
+
+---
